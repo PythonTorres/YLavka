@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "CompleteOrder": {
+      "required": [
+        "complete_time",
+        "courier_id",
+        "order_id"
+      ],
+      "type": "object",
+      "properties": {
+        "courier_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "order_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "complete_time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "CompleteOrderRequestDto": {
+    "required": [
+      "complete_info"
+    ],
+    "type": "object",
+    "properties": {
+      "complete_info": {
+        "type": "array",
+        "items": {
+          "$ref": "classpath:/CompleteOrderRequestDto.json#/definitions/CompleteOrder"
+        }
+      }
+    }
+  }
+}
